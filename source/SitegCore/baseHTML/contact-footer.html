@@ -1,0 +1,90 @@
+<!-- Contact -->
+<section id="contact" class="pb-5 wow fadeIn">
+    <script type="text/javascript">var submitted = false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='thankyou.html';}"></iframe>
+    <div class="container pb-5 pt-5 wow fadeInUp">
+        <div class="row">
+            <div class="col-lg-12 text-center contact-title">
+                <h2 class="text-uppercase title-text">{{ site["contact-title"] }}</h2>
+                <p class="para">
+                    {{ site["contact-subtitle"] }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container contact-box">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 d-flex flex-column p-5 wow fadeInUp">
+                <p class="msg-title p-3">Any message you want to leave?</p>
+                <form action="{{ site['form-action'] }}" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" name="{{ site['form-name'] }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" name="{{ site['form-mail'] }}">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control msg" id="msgme" rows="3" placeholder="The message here..." name="{{ site['form-msg'] }}"></textarea>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-outline-info">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-detail col-md-6 col-sm-12 d-flex flex-column justify-content-center wow fadeInUp">
+                <div class="contact-item">
+                    <div class="d-flex">
+                        <div class="item-head p-4">Address</div>
+                        <div class="item-tail p-4">
+                            {{ site["address"] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="d-flex">
+                        <div class="item-head p-4">Phone</div>
+                        <div class="item-tail p-4">{{ site["ph-number"] }}</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="d-flex">
+                        <div class="item-head p-4">Email</div>
+                        <div class="item-tail p-4">
+                            {{ site["email"] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="social">
+                    <div class="d-flex">
+                        <div class="item-head p-4">Social</div>
+                        <div class="item-tail p-4">
+                            <div class="row">
+                                {% set socialIcons = ["facebook", "twitter", "instagram", "github", "linkedin", "snapchat", "pinterest", "reddit"] %}
+                                {% for socialName in socialIcons %}
+                                {% if socialName in site %}
+                                <span class="col-3"><a href="{{ site[socialName+'-link'] }}" class="fab fa-{{ socialName }}"></a></span>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="footer">
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <div id="copyright">
+            <ul>
+                <li>© {{ site["cr-holder"] }}</li>
+                <!-- Please do not change it. I made it free to use for you. At least, I deserve a credit. -->
+                <li>Design with&nbsp;<i class="fa fa-heart repeat animated rubberBand" aria-hidden="true"></i>&nbsp;by&nbsp;<a href="https://amritaryal.com.np">amrit</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

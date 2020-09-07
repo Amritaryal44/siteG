@@ -1,0 +1,79 @@
+/* all the fonts are from either fonts.google.com or 1001fonts.com */
+
+
+/* @font-face */
+
+@font-face {
+    font-family: "Roboto";
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Poppins-Thin";
+    src: url('../fonts/Poppins/Poppins-Light.ttf');
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: "AmaticSC";
+    src: url('../fonts/AmaticSC/AmaticSC-Regular.ttf')
+}
+
+@font-face {
+    font-family: "AmaticSC-Bold";
+    src: url('../fonts/AmaticSC/AmaticSC-Bold.ttf');
+}
+
+@font-face {
+    font-family: "SpecialElite";
+    src: url('../fonts/SpecialElite-Regular.ttf');
+}
+
+@font-face {
+    font-family: "James";
+    src: url('../fonts/JamesAlmacen.ttf');
+}
+
+@font-face {
+    font-family: "Tom";
+    src: url('../fonts/tomhand.ttf');
+}
+
+/* Rowdies Fonts */
+@font-face {
+    font-family: "Rowdies-Bold";
+    src: url('../fonts/Rowdies/Rowdies-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Rowdies-Regular";
+    src: url('../fonts/Rowdies/Rowdies-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Rowdies-Light";
+    src: url('../fonts/Rowdies/Rowdies-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Cyanide';
+    src: url('../fonts/Cyanide/Cyanide-Breathmint.ttf.woff') format('woff'), url('../fonts/Cyanide/Cyanide-Breathmint.ttf.svg#Cyanide-Breathmint') format('svg'), url('../fonts/Cyanide/Cyanide-Breathmint.ttf.eot'), url('../fonts/Cyanide/Cyanide-Breathmint.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ieicester';
+    src: url('../fonts/Ieicester/Ieicester-Light.ttf.woff') format('woff'), url('../fonts/Ieicester/Ieicester-Light.ttf.svg#Ieicester-Light') format('svg'), url('../fonts/Ieicester/Ieicester-Light.ttf.eot'), url('../fonts/Ieicester/Ieicester-Light.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}

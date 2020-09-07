@@ -1,0 +1,640 @@
+/*
+    > credits for css libraries 
+        * animate.min.css from https://animate.style/
+        * bootstrap.min.css from https://getbootstrap.com/
+        * all.min.css from https://fontawesome.com/
+        * slick.css and slick-theme.css from https://kenwheeler.github.io/slick/
+        * pace.css from https://github.hubspot.com/pace/docs/welcome/
+*/
+
+
+/* import fonts from fonts.css file */
+
+@import url(./fonts.css);
+@import url(./partials/_variables.css);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* start navigation */
+
+nav {
+    -webkit-transition: padding-top .3s, padding-bottom .3s;
+    -moz-transition: padding-top .3s, padding-bottom .3s;
+    transition: padding-top .3s, padding-bottom .3s;
+    border: none;
+}
+
+.navbar-brand span {
+    color: var(--orange);
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Poppins', cursive;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 0.5em 1em!important;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #fff;
+    font-family: "Poppins-Thin", cursive;
+}
+
+.navbar .navbar-toggler {
+    color: #fff;
+    border: var(--orange) 1px solid;
+    border-radius: 3px;
+    font-family: 'Poppins', Courier, monospace;
+    font-size: 16px;
+}
+
+.navbar .navbar-toggler:focus {
+    outline:none;
+}
+
+.navbar-nav .nav-item .active {
+    color: rgb(180, 175, 175);
+}
+
+.shrink {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #212529;
+}
+
+.navbar-nav .nav-item .active::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    -webkit-transform: scaleX(1);
+    background-color: rgb(78, 78, 78);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+}
+
+.navbar-nav .nav-item .active::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    background-color: rgb(78, 78, 78);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+}
+
+.navbar-nav .nav-item .nav-link:not(.active)::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    background-color: rgb(78, 78, 78);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+}
+
+.navbar-nav .nav-item .nav-link:not(.active):hover::before {
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+}
+
+.navbar-nav .nav-item .nav-link:not(.active)::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    background-color: rgb(78, 78, 78);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+}
+
+.navbar-nav .nav-item .nav-link:not(.active):hover::after {
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+}
+
+
+/* end navigation */
+
+
+/* banner */
+
+.banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url("../img/banners/home-banner.jpg");
+    height: 720px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner .text {
+    text-align: center;
+    color: white;
+}
+
+.banner h1 {
+    font-family: "Rowdies-Regular", cursive;
+    font-size: 46px;
+    color: #fff;
+}
+
+.banner p {
+    font-family: "Rowdies-Light", cursive;
+    font-size: 20px;
+    color: #a5abb1;
+}
+
+.banner .text .btn {
+    margin: 5px;
+}
+
+.banner .text .btn-secondary {
+    font-family: 'Poppins-Thin', cursive;
+    background-color: rgb(78, 78, 78);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.banner .godown {
+    position: absolute;
+    top: 650px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+
+/* banner closed */
+
+
+/* About */
+
+#about .about-title h2>span {
+    display: block;
+    font: normal bold 40px;
+    font-family: "Rowdies-Regular", cursive;
+    letter-spacing: 20px;
+}
+
+#about .about-title .paragraph>p {
+    padding: .4rem 0;
+    color: #313131;
+    font-family: "Poppins-Thin", cursive;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+
+/* About Closed */
+
+
+/* Services */
+
+#services .services-title {
+    padding: 0 14rem;
+}
+
+#services .services-title h2 {
+    font-weight: bold;
+    font-family: "Rowdies-Regular", cursive;
+}
+
+#services .services-title .para {
+    color: #6c757d;
+    font-family: "Poppins-Thin", cursive;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#services .services {
+    background: rgba(248, 252, 253, 0.973);
+    padding: 2rem 0;
+    width: 16rem;
+    margin: 2rem .5rem;
+    box-shadow: 0px 5px 15px rgba(78, 78, 78, 0.4);
+    font-family: "SpecialElite", cursive;
+}
+
+
+/* services closed */
+
+
+/* projects */
+
+#gallery {
+    background-color: rgb(55, 58, 63);
+    padding-top: 20px;
+}
+
+#gallery .row .gallery-title h2 {
+    font-family: "Rowdies-Regular", cursive;
+    color: #fff;
+    font-size: var(--header-size);
+}
+
+#gallery .row .gallery-title p {
+    color: #a5abb1;
+    font-family: "Poppins-Thin", cursive;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#gallery .main-slides .sizer {
+    display: block;
+    background-color: linen;
+    width: 100%;
+    height: 70vh;
+}
+
+#gallery .nav-slides .sizer {
+    display: block;
+    background-color: linen;
+    width: 100%;
+    height: 20vh;
+}
+
+#gallery .arrow-left,
+#gallery .arrow-right {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#gallery .item {
+    position: relative;
+}
+
+#gallery .nav-slides .sizer::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 100.5%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    transition: width 5s;
+    -webkit-transition: background-image 5s;
+    -ms-transition: background-image 5s;
+}
+
+#gallery .nav-slides .slick-current .sizer::after {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+#gallery .nav-slides .slick-slide:not(.slick-current) .sizer:hover::after {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+#gallery .main-slides .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    width: 100%;
+    height: 100%;
+}
+
+#gallery .main-slides .arrows {
+    color: white;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+#gallery .main-slides .text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+}
+
+#gallery .main-slides h3 {
+    font-family: 'Poppins-Thin', Arial, sans-serif;
+    font-weight: bolder;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+
+/* projects closed */
+
+
+/* blog section start */
+#posts {
+    background-color: #eee;
+}
+
+#posts .blog-title h2 {
+    font-family: "Rowdies-Regular", cursive;;
+    font-weight: bold;
+}
+
+#posts .blog-title p {
+    font-family: "Poppins-Thin", cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+#posts .blog-entry .image {
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+#posts .blog-entry .heading a {
+    color: #000000;
+    font-size: 20px;
+    font-family: "Poppins", cursive;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+#posts .blog-entry .text span {
+    font-family: 'Poppins-Thin', sans-serif;
+    font-weight: lighter;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+#posts .blog-entry .heading a:hover {
+    color: #524b19;
+    text-decoration: none;
+}
+
+#posts .text .para {
+    color: #414344;
+    font-size: 18px;
+    font-family: "Poppins", cursive;
+}
+
+#posts .pagination a {
+    text-decoration: none;
+    color: #4f5d6b;
+    float: left;
+    padding: 10px 15px;
+}
+
+#posts .pagination a:hover {
+    color: #511ccc;
+    cursor: pointer;
+}
+
+#posts .pagination .active a {
+    background-color: #fff;
+}
+
+
+/* blog section end */
+
+
+/* contact section */
+
+#contact {
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('../img/banners/contact-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#contact .row .contact-title h2 {
+    font-family: "Rowdies-Regular", cursive;
+    color: #fff;
+}
+
+#contact .row .contact-title p {
+    color: #a5abb1;
+    font-family: "Tom", cursive;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#contact .contact-box {
+    box-shadow: 0px 0px 5px var(--light-blue);
+}
+
+#contact .contact-detail {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1));
+}
+
+#contact .contact-box .msg-title {
+    color: #fff;
+    font-family: "James", cursive;
+    letter-spacing: 2px;
+}
+
+#contact .contact-box form {
+    font-family: "Poppins-Thin", cursive;
+    color: #fff;
+}
+
+#contact .contact-box input {
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -ms-transition: all .5s;
+}
+
+#contact .contact-box .msg {
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -ms-transition: all .5s;
+}
+
+#contact .contact-box input:focus {
+    border: solid 1px rgba(0, 0, 0);
+    color: var(--light-blue);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -ms-transition: all .5s;
+}
+
+#contact .contact-box .msg:focus {
+    border: solid 1px rgba(0, 0, 0);
+    color: var(--light-blue);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -ms-transition: all .5s;
+}
+
+#contact .contact-detail .contact-item .item-head,
+#contact .contact-detail .social .item-head {
+    color: rgb(129, 124, 124);
+    font-family: "Poppins-Thin", cursive;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#contact .contact-detail .contact-item .item-tail {
+    color: rgb(175, 170, 170);
+    font-family: "Poppins-Thin", cursive;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+#contact .contact-detail .social .item-tail a {
+    color: var(--light-blue);
+    padding: 3px;
+    font-size: 20px;
+    transition: color 1s;
+}
+
+#contact .contact-detail .social .item-tail a:hover {
+    color: #fff;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+
+/* contact section end */
+
+
+/* footer section */
+
+#footer .jumbotron {
+    background-color: black;
+    border-radius: 0px;
+}
+
+#footer #copyright ul {
+    list-style-type: none;
+}
+
+#footer #copyright li {
+    font-family: "SpecialElite", cursive;
+    display: inline-block;
+    color: #6c757d;
+    padding-right: 15px;
+}
+
+#footer #copyright li:nth-child(2) {
+    border-left: solid 2px;
+    padding-left: 15px;
+}
+
+#footer #copyright a {
+    text-transform: uppercase;
+    color: var(--light-blue);
+}
+
+#footer #copyright a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* footer section end */
+
+
+/* responsive design */
+
+@media(max-width:991px) {
+    .banner h1 {
+        font-size: 30px;
+    }
+    .banner p {
+        font-size: 21px;
+    }
+    #about .about-title h2>span {
+        font-size: 28px;
+    }
+    #about .row {
+        text-align: center;
+    }
+}
+
+@media(max-width: 768px) {
+    .not-shrink {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: rgba(51, 51, 58, 0.95);
+    }
+    #about {
+        text-align: center;
+        padding: 0;
+        margin-top: 5rem;
+    }
+    #about .about-title h2>span {
+        letter-spacing: 10px;
+    }
+    #about .about-title p {
+        padding: 0%;
+        text-align: center;
+    }
+    #services .services {
+        padding: 2rem 0;
+        width: 16rem;
+        margin: 1rem .5rem;
+    }
+    #services .services-title {
+        padding: 0 1rem;
+    }
+    #services .services {
+        font-size: 20px;
+    }
+}
+
+@media(max-width:480px) {
+    #gallery .nav-slides {
+        display: none;
+    }
+    #posts .row {
+        padding: 10px;
+    }
+}

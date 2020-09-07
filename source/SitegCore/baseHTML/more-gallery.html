@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site['site-description'] }}">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/baguetteBox.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/partials/_global.css">
+    <link rel="stylesheet" href="css/arts.css">
+  
+    <title>{{ site['site-title'] }}</title>
+</head>
+<body>
+<div class="site text-center pb-3">
+    <div class="d-flex justify-content-center">
+        <div class="repeat animated tada"><a href="/">{{ site["site-name"] }}</a></div>
+    </div>
+</div>
+<div class="container gallery-container">
+
+    <div class="back"><a href="/" class="fas fa-long-arrow-alt-left"></a></div>
+
+    <h1>{{ galleries['head']['title'] }}</h1>
+
+    <p class="page-description text-center">{{ galleries['head']['description'] }}</p>
+    
+    <div class="tz-gallery">
+
+        <div class="card-columns">
+            {% for gallery in galleries['galleries'] %}
+            <div class="hover-img card">
+                <a class="lightbox" title="{{ gallery['caption'] }}" href="./img/gallery/more/{{ gallery['id'] }}.jpg">
+                    <img src="./img/gallery/more/{{ gallery['id'] }}.jpg " alt="{{ gallery['caption'] }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+</body>
+</html>

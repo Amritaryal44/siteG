@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A static site generator - By Amrit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/jquery.contextMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="container mt-4">
+        <a href="/site-detail" class="btn btn-secondary"><span class="fas fa-home"></span>&nbsp;Home</a>
+    </div>
+    <div class="container mt-4 text-center">
+        <h1>Category</h1>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="d-flex flex-wrap">
+            {% if (categories|length == 0) %}
+            <div class="container text-center"><p>No categories yet</p></div>
+            {% endif %}
+            {% for category in categories %}
+            <div class="category-item text-center mb-4 p-2 mr-4">
+                <a href="/post-section/{{category.strip()|lower|replace(' ', '-')}}" class="btn btn-outline-dark">
+                    <span class="fas fa-folder"></span>
+                    <span class="category-name m-0 font-weight-lighter">{{ category }}</span>
+                </a> 
+                <div class="modal fade rename-modal">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="container text-center py-4">
+                            <form action="/post-section/" method="post">
+                                <input type="text" name="new-name" value="{{ category }}">
+                                <input type="hidden" name="old-name" value="{{ category }}">
+                                <input type="submit" class="btn btn-secondary" name="submit" value="rename">
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container my-2 text-center">
+        <hr>
+        <span class="add-category btn btn-secondary mb-0 fa fa-plus-square" data-toggle="tooltip" title="Add Category">
+        </span>
+        <div class="modal fade" id="add-modal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="container text-center py-4">
+                    <form action="/post-section/" method="post">
+                        <input type="text" name="name">
+                        <input type="submit" class="btn btn-secondary" name="submit" value="add">
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="mt-auto">
+        <div class="footer-copyright text-center py-3">
+            <p>Developed with &hearts; by <a href="www.amritaryal.com.np">Amrit</a></p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename = 'js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.contextMenu.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.ui.position.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/post.js') }}"></script>
+</body>
+
+</html>

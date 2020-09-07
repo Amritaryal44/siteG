@@ -1,0 +1,66 @@
+body {
+    font-family: "Poppins-Thin", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #524b19;
+    text-decoration: none;
+}
+
+.hover-img { 
+    overflow: hidden; 
+    margin: 0;
+} 
+
+.hover-img img { 
+    transition: 0.5s all ease-in-out; 
+} 
+
+.hover-img:hover img { 
+    transform: scale(1.1); 
+} 
+
+.repeat {
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+

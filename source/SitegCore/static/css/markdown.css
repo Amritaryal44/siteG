@@ -1,0 +1,40 @@
+#preview-htm .hover-img {
+    overflow: hidden;
+    margin: 5px;
+}
+
+#preview-htm .hover-img:hover .img-fluid {
+    transform: scale(1.1);
+}
+
+#preview-htm .hover-img .img-fluid {
+    transition: 0.5s all ease-in-out;
+}
+
+#preview-htm h1,
+#preview-htm h2,
+#preview-htm h3,
+#preview-htm h4,
+#preview-htm h5,
+#preview-htm h6 {
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+#preview-htm a {
+    color: rgb(0, 132, 255);
+    text-decoration: none;
+}
+
+#preview-htm a:hover {
+    text-decoration: underline;
+}
+
+#preview-htm p {
+    font-family: "Poppins-Thin", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+}

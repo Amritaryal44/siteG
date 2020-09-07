@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A static site generator - By Amrit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/jquery.contextMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="container mt-4">
+        <a href="/post-section" class="btn btn-secondary" data-toggle="tooltip" title="Go back to category"><span class="fas fa-arrow-alt-circle-left"></span>&nbsp;Back</a>
+        <a href="/site-detail" class="btn btn-secondary"><span class="fas fa-home"></span>&nbsp;Home</a>
+    </div>
+
+    <div class="container mt-4 text-center" id="category-name">
+        {% if category %}
+        <h1>Category - {{ category }}</h1>
+        {% else %}
+        <h1>All Posts</h1>
+        {% endif %}
+        <hr>
+    </div>
+    
+
+    <div class="container">
+        <div class="list-group">
+            {% if (posts|length == 0) %}
+            <div class="container"><p>No posts yet</p></div>
+            {% endif %}
+            {% for post in posts %}
+            <div>
+                <a href="/post-section/{{ post['category']}}/{{ post['id'] }}/" class="list-group-item list-group-item-action list-group-item-secondary my-2" id="id-{{ post['id']}}">
+                    {{ post['title'] }}
+                </a>
+                <div class="modal fade rename-modal">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="container text-center py-4">
+                            <form action="/post-section/{{ post['category']}}/" method="post">
+                                <input type="text" name="title" value="{{ post['title'] }}" autocomplete="off">
+                                <input type="hidden" name="id" value="{{ post['id'] }}">
+                                <input type="submit" class="btn btn-secondary" name="submit" value="rename">
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if category %}
+    <div class="container my-2 text-center">
+        <hr>
+        <span class="add-post btn btn-secondary mb-0 fa fa-plus-square" data-toggle="tooltip" title="Add Post">
+        </span>
+        <div class="modal fade" id="add-modal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="container text-center py-4">
+                    <form action="/post-section/{{category.strip()|lower|replace(' ', '-')}}/" method="post">
+                        <input type="text" name="title" autocomplete="off" placeholder="Enter post title">
+                        <input type="submit" class="btn btn-secondary" name="submit" value="add">
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container my-2 text-center">
+        <a href="/all-posts/" class="btn btn-secondary">See All Posts</a>
+    </div>
+    {% endif %}
+
+    <footer class="mt-auto">
+        <div class="footer-copyright text-center py-3">
+            <p>Developed with &hearts; by <a href="www.amritaryal.com.np">Amrit</a></p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename = 'js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.contextMenu.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.ui.position.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/post.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elixir - A static site generator</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+</head>
+<body>
+    <h1>Hello First EEL Test</h1>
+    <p>The result is <span id="res"></span></p>
+    <!-- python function called when button is clicked -->
+    <button onclick="eel.py_func(3, 4)">Click Me</button>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+        // python callable function
+        eel.expose(js_func);
+        function js_func(a,b) {
+            $("#res").text(a+b);
+        }
+
+        // function to return data for the python call
+        eel.expose(js_return);
+        function js_return(a,b) {
+            return "Returned from javascript "+(a+b);
+        }
+
+        // get return data from python function
+        async function run() {
+            // Inside a function marked 'async' we can use the 'await' keyword.
+            let n = await eel.py_return(2, 1)(); // Must prefix call with 'await', otherwise it's the same syntax
+            console.log("Got this from Python: " + n);
+        }
+        run();
+        
+    </script>
+</body>
+</html>

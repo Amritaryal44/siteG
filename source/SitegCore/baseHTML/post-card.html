@@ -1,0 +1,22 @@
+{% for post in posts|sort(attribute='id', reverse = True) %}
+<div class="col-md-4 mt-5 wow fadeInUp" id-number="{{ post['id'] }}" category="{{ post['category'] }}">
+    <div class="blog-entry justify-content-end h-100 rounded" style="background-color: #fff; overflow: hidden;">
+        <a href="./posts/categories/{{ post['category'] }}/{{ post['id'] }}.html">
+            <div class="hover-img image d-flex justify-content-center" style="background-image: url('/img/coming-soon.png');">
+                <img src="./posts/images/{{ post['id'] }}/{{ post['id'] }}.jpg" alt="{{ post['title'] }}" />
+            </div>
+        </a>
+        <div class="text m-3 d-block">
+            <div class=" align-items-center meta">
+                <p class="mb-0">
+                    <span class="mr-2">{{ postDate[post['id']] }}</span>
+                </p>
+            </div>
+            <h3 class="heading">
+                <a href="./posts/categories/{{ post['category'] }}/{{ post['id'] }}.html">{{ post['title'][0]|upper }}{{ post['title'][1:] }}</a>
+            </h3>
+            <p class="para">{{ post['description'] }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}

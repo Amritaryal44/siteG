@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A static site generator - By Amrit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/jquery.contextMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/prism.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/image-list.css') }}">
+    <!-- markdown-textex dependency -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'md/katex.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'md/texmath.min.css') }}">
+    <!-- dependency closed -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/editor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/markdown.css') }}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="container mt-4">
+        <a href="/post-section/{{ category }}" class="back-button btn btn-secondary" data-toggle="tooltip" title="Go back to category - {{ category }}"><span class="fas fa-arrow-alt-circle-left"></span>&nbsp;Back</a>
+        <a href="/site-detail" class="btn btn-secondary"><span class="fas fa-home"></span>&nbsp;Home</a>
+    </div>
+    <div class="container mt-4 text-center" id="post-name">
+        <h1>{{ post["title"][0]|upper }}{{ post["title"][1:] }}</h1>
+        <hr>
+    </div>
+
+    <div class="container">
+        <label for="post-date">Date of Post : </label>
+        <input type="date" id="post-date" name="date" value="{{ date }}">
+    </div>
+
+    <div class="container">
+        <form id="post-setup">
+            <div id="accordion" class="myaccordion pb-0 mb-2">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="mb-0">
+                    <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#post-short" aria-expanded="false" aria-controls="collapseOne">
+                      <span>Post Setup</span>
+                      <span><i></i></span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="post-short" class="card-body collapse" data-parent="#accordion">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Post Title</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Title of the post" name="title" value="{{ post['title'] }}" required>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Post Description</span>
+                      </div>
+                      <textarea class="form-control" rows="3" placeholder="Enter short description of the post" name="description">{{ post['description'] }}</textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="category">Category</label>
+                      </div>
+                      <select class="custom-select" id="category" name="category">
+                        {% for category in categories %}
+                        {% if (category|lower|replace(' ', '-')==post['category']) %}
+                        <option value="{{category|lower|replace(' ', '-')}}" selected>{{ category }}</option>
+                        {% else %}
+                        <option value="{{category|lower|replace(' ', '-')}}">{{ category }}</option>
+                        {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Keywords</span>
+                      </div>
+                      <input class="form-control keyword" name="keywords" type="text" value="{% for keyword in post['keywords'] %}{{ keyword }}, {% endfor %}" data-role="tagsinput" placeholder="Enter Keyword separated with ,">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Post Image</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" accept="image/*" onchange="loadFile(event)" class="custom-file-input" id="post-image" name="image">
+                          <label class="custom-file-label" for="post-image" >Choose Image</label>
+                        </div>
+                        <div class="container text-center p-2">
+                          <img class="img-fluid" src="{{ postImage }}" alt="" width="350px">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3"> 
+                        <div class="input-group-prepend">
+                            <input class="btn btn-secondary btn-block rounded p-2" type="submit" style="color: #fff;" value="Save" name="submit">
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
+
+        <div class="container text-center mb-5 card myaccordion px-0 mt-0" id="image-accordion">
+            <div class="card-header">
+                <h2 class="mb-0">
+                    <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#image-setup">
+                      <span>Images for the post</span>
+                      <span><i></i></span>
+                    </button>
+                  </h2>
+            </div>
+            <div class="card-body collapse" id="image-setup" data-parent="#image-accordion">
+                <div class="image-list container d-flex flex-wrap p-5">
+                    {% for image in images %}
+                    <div class="card m-3">
+                        <div class="card-body p-0">
+                            <div class="image-item img-fluid" style="background-image: url({{ image['image'] }});">
+                                <button class="img-delete close p-2" aria-label="Close" name="{{ image['id'] }}" format="{{ image['format'] }}">
+                                    &times;
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-footer pb-0">
+                            <p>/posts/images/{{ post['id'] }}/{{ post['id'] }}-{{ image['id'] }}.jpg</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="upload-item image-item m-3 d-flex flex-column justify-content-center" 
+                        style="border: dashed 1px black;"
+                ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="$('.upload-item').removeClass('drag-controlled');">
+                        <div class="input-file">
+                            <span class="fas fa-upload" style="font-size: larger;"></span><br>
+                            <input type="file" name="image" id="image-file" class="file-upload" onchange="uploadImage(event.target.files[0])" accept="image/*"/>
+                            <label for="image-file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-5" style="height:100vh">
+      <hr>
+      <div class="row px-2 h-100 pb-2" id="editor-form">
+        <div class="container col-6 d-flex justify-content-start">
+          <div class="custom-control custom-switch mr-4">
+            <input type="checkbox" class="custom-control-input" id="html" name="html" {% if (mdConfig["html"] == "true") %}checked{% endif %}>
+            <label class="custom-control-label" for="html">Allow HTML</label>
+          </div>
+          <div class="custom-control custom-switch mr-4">
+            <input type="checkbox" class="custom-control-input" id="auto-link" name="auto-link" {% if (mdConfig["breakC"] == "true") %}checked{% endif %}>
+            <label class="custom-control-label" for="auto-link">Auto Link</label>
+          </div>
+          <div class="custom-control custom-switch mr-4">
+            <input type="checkbox" class="custom-control-input" id="break" name="break" {% if (mdConfig["autoLink"] == "true") %}checked{% endif %}>
+            <label class="custom-control-label" for="break">Break As-It-Is</label>
+          </div>
+        </div>
+        <div class="container col-6 d-flex justify-content-end mb-2">
+          <button class="btn btn-secondary" id="save-md">Save</button>
+        </div>
+        <div class="card col-sm-6 p-0 rounded-0">
+          <div class="card-header p-2 editor-head d-flex justify-content-between">
+            <span>MARKDOWN</span>
+            <span class="unsaved fa fa-circle"></span>
+          </div>
+          <div class="card-body p-0">
+            <div id="editor">{{ mdData }}</div>
+          </div>
+        </div>
+        <div class="card col-sm-6 p-0 rounded-0 preview">
+          <div class="card-header px-2 py-1 editor-head d-flex justify-content-between">
+            <span>PREVIEW</span>
+            <span class="btn p-0 m-0" id="toggle-preview">
+              <span class="fa fa-eye"></span>
+              <span class="fa fa-code"></span>
+            </span>
+          </div>
+          <div class="card-body preview pb-0 pr-0">
+            <div id="preview-htm"></div>
+            <pre id="preview1"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename = 'js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.contextMenu.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.ui.position.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'ace/ace.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename = 'ace/mode-markdown.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename = 'ace/ext-language_tools.js') }}"></script>
+    <!-- For markdown -->
+    <script src="{{ url_for('static', filename = 'js/prism.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'md/twemoji.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'md/markdown-it.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'md/markdown-it-emoji.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'md/markdown-it-deflist.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'md/katex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'md/texmath.min.js') }}"></script>
+    <!-- markdown close -->
+    <script src="{{ url_for('static', filename = 'js/editor.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/post.js') }}"></script>
+</body>
+
+</html>

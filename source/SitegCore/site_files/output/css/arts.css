@@ -1,0 +1,118 @@
+@import url(./fonts.css);
+@import url(./partials/_variables.css);
+
+body {
+    background-color: #434c50;
+    min-height: 100vh;
+    font: normal 16px sans-serif;
+    padding: 40px 0;
+}
+
+.site a{
+    color: var(--orange);
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: 'Poppins', cursive;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+}
+
+.container.gallery-container {
+    background-color: #fff;
+    color: #35373a;
+    min-height: 100vh;
+    padding: 30px 50px;
+}
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Rowdies-Regular', sans-serif;
+    font-weight: bold;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    margin: 25px auto;
+    font-size: 18px;
+    font-family: "Poppins-Thin";
+    letter-spacing: 0.2em;
+    color: #999;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+/* Override bootstrap column paddings */
+.tz-gallery .row > div {
+    padding: 2px;
+}
+
+.tz-gallery .lightbox img {
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+}
+
+.tz-gallery .lightbox:before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    font-family: 'Poppins-Thin';
+    content: attr(title);
+    pointer-events: none;
+    z-index: 9000;
+    transition: 0.4s;
+    width: 100%;
+    text-align: center;
+    padding: 0 2px 0 2px;
+}
+
+
+.tz-gallery .lightbox:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(36, 37, 37, 0.7);
+    content: '';
+    transition: 0.4s;
+}
+
+.tz-gallery .lightbox:hover:after,
+.tz-gallery .lightbox:hover:before {
+    opacity: 1;
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+.back a {
+    font-size: 30px;
+    text-decoration: none;
+    color: rgba(36, 37, 37);
+}
+
+.back a:hover {
+    font-size: 30px;
+    color: var(--light-blue);
+}
+
+@media(max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .back a {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A static site generator - By Amrit</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div class="container mt-4">
+    <h1>Site Setup</h1>
+    <hr>
+  </div>
+  <form action="/site-detail/" method="post" enctype=multipart/form-data autocomplete="off">
+    <div id="accordion" class="container myaccordion">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#site-detail" aria-expanded="false" aria-controls="collapseOne">
+              <span>Site Detail</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="site-detail" class="card-body collapse" data-parent="#accordion">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Site Title</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Title of the site" name="site-title" value="{{ formData['site-title'] }}" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Site Description</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Enter short description of the site" name="site-description" value="{{ formData['site-description'] }}" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Site Name</span>
+              </div>
+              <input type="text" class="form-control" placeholder="This text appears as a representative text for site" name="site-name" value="{{ formData['site-name'] }}" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Copyright Holder</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Who is the Copyright holder of this site" name="cr-holder" value="{{ formData['cr-holder'] }}" required>
+            </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#home-banner" aria-expanded="false" aria-controls="collapseOne">
+              <span>Home Banner Setup</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="home-banner" class="card-body collapse" data-parent="#accordion">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Banner Title</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. Hi! It's me, Amrit" name="banner-title" value="{{ formData['banner-title'] }}" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Banner Subtitle</span>
+            </div>
+            <textarea class="form-control" rows="3" placeholder="Enter whatever you feel right and awesome." name="banner-subtitle">{{ formData['banner-subtitle'] }}</textarea>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Banner Background</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" accept="image/*" onchange="loadFile(event)" class="custom-file-input" id="home-image" name="home-image">
+              <label class="custom-file-label" for="home-image" >Choose Image</label>
+            </div>
+            <div class="container text-center p-2">
+              <img class="img-fluid" src="{{ imageData['home-image'] }}" alt="" width="350px">
+            </div>
+          </div>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#about" aria-expanded="false" aria-controls="collapseOne">
+              <span>About Site Setup</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="about" class="card-body collapse" data-parent="#accordion">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your Introduction</span>
+            </div>
+            <textarea class="form-control" rows="3" placeholder="introduction about you." name="about-intro" required>{{ formData['about-intro'] }}</textarea>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Profile Image</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" accept="image/*" class="custom-file-input" onchange="loadFile(event)" name="profile-image" id="profile-image">
+              <label class="custom-file-label" for="profile-image" accept="image/*">Choose Image</label>
+            </div>
+            <div class="container text-center p-2">
+              <img class="img-fluid" src="{{ imageData['profile-image'] }}" alt="" width="350px">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#posts" aria-expanded="false" aria-controls="collapseOne">
+              <span>Post Section</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="posts" class="card-body collapse" data-parent="#accordion">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Post Title</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. My Posts" name="post-title" value="{{ formData['post-title'] }}" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Post Subtitle</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. I love to share my knowledge" name="post-subtitle" value="{{ formData['post-subtitle'] }}">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Banner Background</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" accept="image/*" onchange="loadFile(event)" class="custom-file-input" id="post-image" name="post-image">
+              <label class="custom-file-label" for="post-image" >Choose Image</label>
+            </div>
+            <div class="container text-center p-2">
+              <img class="img-fluid" src="{{ imageData['post-image'] }}" alt="" width="350px">
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <h3><a href="/post-section" class="btn btn-secondary p-2" style="color: #fff;">Go to Posts</a></h3>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#gallery" aria-expanded="false" aria-controls="collapseOne">
+              <span>Gallery Section</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="gallery" class="card-body collapse" data-parent="#accordion">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Gallery Title</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. My Gallery" name="gallery-title" value="{{ formData['gallery-title'] }}" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Gallery Subtitle</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. These are some of the best memories in my life" name="gallery-subtitle" value="{{ formData['gallery-subtitle'] }}">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">More Gallery</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. Wanna see more?" name="gallery-more" value="{{ formData['gallery-more'] }}">
+          </div>
+          <div class="input-group mb-3">
+            <h3><a href="/gallery-section" class="btn btn-secondary p-2" style="color: #fff;">Go to Gallery</a></h3>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#services" aria-expanded="false" aria-controls="collapseOne">
+              <span>Services Section</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="services" class="card-body collapse" data-parent="#accordion">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Services Title</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. Services I can do for you" name="service-title" value="{{ formData['service-title'] }}" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Services Subtitle</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. Write short description here" name="service-subtitle" value="{{ formData['service-subtitle'] }}">
+          </div>
+          <div class="input-group mb-3">
+            <h3><a href="/service-section" class="btn btn-secondary p-2" style="color: #fff;">Go to Services</a></h3>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">
+            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#contact" aria-expanded="false" aria-controls="collapseOne">
+              <span>Contact Section</span>
+              <span><i></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="contact" class="card-body collapse" data-parent="#accordion">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Contact Title</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. Contact Me" name="contact-title" value="{{ formData['contact-title'] }}" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Contact Subtitle</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Eg. Feel free to contact me." name="contact-subtitle" value="{{ formData['contact-subtitle'] }}">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Banner Background</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" accept="image/*" class="custom-file-input" onchange="loadFile(event)" id="contact-image" name="contact-image">
+              <label class="custom-file-label" for="contact-image" >Choose Image</label>
+            </div>
+            <div class="container text-center p-2">
+              <img class="img-fluid" src="{{ imageData['contact-image'] }}" alt="" width="350px">
+            </div>
+          </div>
+          <div class="container">
+            <h3>Form Detail</h3>
+            <hr>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Action</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Enter the action url" name="form-action" value="{{ formData['form-action'] }}" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Name</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Something like entry.2543459" name="form-name" value="{{ formData['form-name'] }}" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Email</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Something like entry.2543459" name="form-mail" value="{{ formData['form-mail'] }}" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Message</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Something like entry.2543459" name="form-msg" value="{{ formData['form-msg'] }}" required>
+            </div>
+            <h3>Address section</h3>
+            <hr>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Address</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Eg. Butwal, Nepal" name="address" value="{{ formData['address'] }}">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Phone Number</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Eg. (+977) 98XXXXXXXX" name="ph-number" value="{{ formData['ph-number'] }}">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Email</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Eg. abc@gmail.com" name="email" value="{{ formData['email'] }}">
+            </div>
+            <div class="container">
+              <h4>Social</h4>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="facebook" name="facebook" {% if formData['facebook'] %}checked{% endif %}>
+                    <label class="form-check-label" for="facebook">Facebook</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://facebook.com/xyz.231" name="facebook-link" value="{{ formData['facebook-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="twitter" name="twitter" {% if formData['twitter'] %}checked{% endif %}> 
+                    <label class="form-check-label" for="twitter">Twitter</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://twitter.com/abc.321" name="twitter-link" value="{{ formData['twitter-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="instagram" name="instagram" {% if formData['instagram'] %}checked{% endif %}>
+                    <label class="form-check-label" for="instagram">Instagram</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://instagram.com/xyz.231" name="instagram-link" value="{{ formData['instagram-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="github" name="github" {% if formData['github'] %}checked{% endif %}>
+                    <label class="form-check-label" for="github">Github</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://github.com/xyz.231" name="github-link" value="{{ formData['github-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="linkedin" name="linkedin" {% if formData['linkedin'] %}checked{% endif %}>
+                    <label class="form-check-label" for="linkedin">Linkedin</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://linkedin.com/xyz.231" name="linkedin-link" value="{{ formData['linkedin-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="snapchat" name="snapchat" {% if formData['snapchat'] %}checked{% endif %}>
+                    <label class="form-check-label" for="snapchat">Snapchat</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://snapchat.com/xyz.231" name="snapchat-link" value="{{ formData['snapchat-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="pinterest" name="pinterest" {% if formData['pinterest'] %}checked{% endif %}>
+                    <label class="form-check-label" for="pinterest">Pinterest</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://pinterest.com/xyz.231" name="pinterest-link" value="{{ formData['pinterest-link'] }}">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text px-5">
+                    <input type="checkbox" class="form-check-input" id="reddit" name="reddit" {% if formData['reddit'] %}checked{% endif %}>
+                    <label class="form-check-label" for="reddit">Reddit</label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Eg. http://reddit.com/xyz.231" name="reddit-link" value="{{ formData['reddit-link'] }}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5">
+      <input class="btn btn-secondary" type="submit" value="Save">
+    </div>
+  </form>
+
+  <footer class="mt-auto">
+    <div class="footer-copyright text-center py-3">
+        <p>Developed with &hearts; by <a href="www.amritaryal.com.np">Amrit</a></p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename = 'js/jquery-3.5.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'js/site-detail.js') }}"></script>
+</body>
+
+</html>

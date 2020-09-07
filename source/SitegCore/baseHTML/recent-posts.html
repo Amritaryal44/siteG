@@ -1,0 +1,21 @@
+<h3>Recent Posts</h3>
+<ul>
+    {% for post in posts %}
+    <li>
+        <div class="sidebar-thumb">
+            <div class="img-post wow rollIn d-flex justify-content-center">
+                <img src="/posts/images/{{ post['id'] }}/{{ post['id'] }}.jpg" alt="{{ post['title'] }}" />
+            </div>
+        </div>
+        <!-- .Sidebar-thumb -->
+        <div class="sidebar-content">
+            <h5 class="animated bounceInRight"><a href="/posts/categories/{{ post['category'] }}/{{ post['id'] }}.html">{{ post['title'].capitalize() }}</a></h5>
+        </div>
+        <!-- .Sidebar-thumb -->
+        <div class="sidebar-meta">
+            <span class="time"><i class="far fa-clock"></i>&nbsp;{{ postDate[post['id']] }}</span><br>
+        </div>
+        <!-- .Sidebar-meta ends here -->
+    </li>
+    {% endfor %}
+</ul>

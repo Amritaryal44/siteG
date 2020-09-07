@@ -1,0 +1,26 @@
+#editor { 
+    width: 100%;
+    height: 100%;
+}
+
+.editor-head {
+    font-size: 12px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    color: gray;
+}
+
+.preview {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+#preview1 {
+    white-space: pre-line;
+}
+
+.emoji {
+    height: 1.2em;
+}
+

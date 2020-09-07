@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A static site generator - By Amrit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="container mt-4">
+        <a href="/site-detail" class="btn btn-secondary"><span class="fas fa-home"></span>&nbsp;Home</a>
+    </div>
+    <div class="container mt-4 text-center">
+        <h1>Galleries</h1>
+        <hr>
+    </div>
+
+    {% if (galleryFiles|length == 0) %}
+    <div class="container text-center">
+        <p>No galleries yet</p>
+    </div>
+    {% endif %}
+
+    <form action="/gallery-section/" method="post" id="main-form">
+        <div class="container gallery-box">
+            {% for galleryFile in galleryFiles %}
+            <div class="card mb-3 p-2">
+                <div class="gal-img img-fluid d-flex flex-column justify-content-end" style="background-image: url({{ imageData[galleryFile['id']] }});">
+                    <div class="input-group mb-2 px-2">
+                        <input type="text" class="form-control" placeholder="Enter Caption for the image"
+                            name="caption-{{ galleryFile['id'] }}" value="{{ galleryFile['caption'] }}">
+                        <button class="btn btn-dark delete ml-1" type="button" style="color: #fff;"
+                            name="button-{{ galleryFile['id'] }}"><span class="fas fa-trash"></span></button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+
+    <div class="container my-2 text-center">
+        <hr>
+        <form action="/gallery-section/" method=POST enctype=multipart/form-data style="display: inline;">
+            <input type="submit" value="add" name="submit" style="display: none;" id="img-submit">
+            <label class="btn btn-secondary mb-0" data-toggle="tooltip" title="Upload Picture">
+                <input type="file" name="image" accept="image/*" id="img-upload" onchange="$('#img-submit').click()"/>
+                <span class="fa fa-plus-square"></span>
+            </label>
+        </form>
+        <input class="btn btn-secondary" type="submit" name="submit" value="Save" form="main-form">
+    </div>
+    <div class="container text-center my-5">
+        <a href="/gallery-section/more" class="btn btn-secondary">More Galleries</a>
+    </div>
+
+
+    
+
+    <footer class="mt-auto">
+        <div class="footer-copyright text-center py-3">
+            <p>Developed with &hearts; by <a href="www.amritaryal.com.np">Amrit</a></p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename = 'js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/gallery.js') }}"></script>
+</body>
+
+</html>

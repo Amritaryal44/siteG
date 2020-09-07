@@ -1,0 +1,32 @@
+.image-list .image-item {
+    width: auto;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+}
+
+.image-list .image-upload label {
+    border: solid 1px black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drag-controlled {
+    background-color: rgba(248, 248, 86, 0.507);
+}
+
+
+.upload-item label {
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.upload-item label:hover strong {
+    color: rgb(103, 79, 211);
+}
+
+.upload-item .upload-button {
+    display: none;
+}

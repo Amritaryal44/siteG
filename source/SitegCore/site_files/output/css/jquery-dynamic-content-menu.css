@@ -1,0 +1,135 @@
+/*
+ * jquery-dynamic-content-menu.css 1.0.0
+ * Author: coderius
+ */
+ :root {
+    --scodColorBlue-500: #2196f3;
+    --scodColorBlue-700: #1976d2;
+    --scodColorIndigo: #3f51b5;
+    --scodItemActiveTextColor: #fff;
+    --scodColorGray-300: #e0e0e0;
+
+    --fontFamilyRoboto: "Roboto", "Helvetica", "Arial", sans-serif;
+    --fontWeight-500: 500;
+    --letterSpacing-002: 0.02857em;
+
+    --scodDefaultBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    --scodDefaultBorderRadius: 6px;
+    --scodDefaultlinkColor: var(--scodColorIndigo);
+    --scodLineHeght-1: 35px;
+    --scodLineHeght-2: 30px;
+    --scodLineHeght-3: 25px;
+}
+
+
+/* Themes */
+.scod-theme-material{
+    --mainBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    --mainBorder: 1px solid #ccc;
+    --mainBorderRadius: 4px;
+    --mainBackgroundColor: #fff;
+    --linkColor: var(--scodColorBlue-700);
+    --h1FintFamily: var(--fontFamilyRoboto);
+    --h1FontWeight: var(--fontWeight-500);
+    --h1LetterSpacing: var(--letterSpacing-002);
+    --h1TextTransform: uppercase;
+    --itemHoverBackgroundColor: var(--scodColorGray-300);
+    --itemActiveBackgroundColor: #0088cc;
+    --itemActiveTextColor: #fff;
+
+}
+
+
+
+/* The Table of Contents container element */
+.dynamicContentMenu {
+    width: 20%;
+    max-height: 90%;
+    overflow: auto;
+    margin-left: 2%;
+    position: fixed;
+    border: var(--mainBorder, 1px solid #ccc);
+    box-shadow: var(--mainBoxShadow, --scodDefaultBoxShadow);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: var(--mainBorderRadius, --scodDefaultBorderRadius);
+    
+}
+
+.dynamicContentMenu a{
+    color: var(--linkColor, --scodDefaultlinkColor) !important;
+    /* padding: 10px 0; */
+    
+}
+/* The Table of Contents is composed of multiple nested unordered lists.  These styles remove the default styling of an unordered list because it is ugly. */
+.dynamicContentMenu ul, .dynamicContentMenu li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: var(--scodLineHeght-1, 35px);
+}
+
+/* Top level header elements */
+.dynamicContentMenu__header {
+    text-indent: 10px;
+    font-family: --fontFamilyRoboto;
+    text-transform: var(--h1TextTransform, none);
+}
+
+/* Top level subheader elements.  These are the first nested items underneath a header element. */
+.dynamicContentMenu__subheader {
+    text-indent: 20px;
+    display: none;
+    text-transform: none !important;
+}
+
+.dynamicContentMenu__subheader li{
+    line-height: var(--scodLineHeght-2, 30px);
+}
+
+.dynamicContentMenu__item {
+    background-color: transparent;
+    transition: all 0.5s;
+}
+
+.dynamicContentMenu__item:hover {
+    background-color: var(--itemHoverBackgroundColor, transparent);
+}
+
+/* Makes the font smaller for all subheader elements. */
+.dynamicContentMenu__subheader li {
+    font-size: 12px;
+}
+
+/* Further indents second level subheader elements. */
+.dynamicContentMenu__subheader .dynamicContentMenu__subheader {
+    text-indent: 30px;
+}
+
+/* Further indents third level subheader elements. You can continue this pattern if you have more nested elements. */
+.dynamicContentMenu__subheader .dynamicContentMenu__subheader .dynamicContentMenu__subheader {
+    text-indent: 40px;
+}
+
+
+/* Common styles */
+.scod-flex-container{
+    display: flex;
+    /* flex-wrap: wrap; */
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    flex-direction: column !important;
+}
+
+.active{
+    background-color: var(--itemActiveBackgroundColor, --scodColorBlue-500);
+}
+
+.active a{
+    color: var(--itemActiveTextColor, --scodItemActiveTextColor) !important;
+}
+
+.dynamicContentMenu_hide{
+    display: none;
+}

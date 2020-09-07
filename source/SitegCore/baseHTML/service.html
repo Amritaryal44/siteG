@@ -1,0 +1,15 @@
+{% for service in services %}
+<div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center wow fadeInUp">
+    <div class="services repeat animated pulse">
+        <div class="sevices-img text-center py-4">
+            <img src="./img/services/{{ service['id'] }}.png" alt="{{ service['name'] }}" class="img-fluid" width="25%">
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title text-uppercase">{{ service['name'] }}</h5>
+            <p class="card-text text-secondary">
+                {{ service['description'] }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endfor %}
