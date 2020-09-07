@@ -1,1 +1,4 @@
+title: siteG - A static site generator
+description: SiteG is a static site generator with automatic management techniques. It is specially designed for portfolio websites.
+show_downloads: true
 theme: jekyll-theme-cayman
