@@ -2,3 +2,7 @@ title: siteG - A static site generator
 description: SiteG is a static site generator with automatic management techniques. It is specially designed for portfolio websites.
 show_downloads: true
 theme: jekyll-theme-cayman
+downloads:
+  zip_win: https://www.amritaryal.com.np/siteG/Downloads/Windows/siteg.zip
+  setup_win: https://www.amritaryal.com.np/siteG/Downloads/Windows/setup.exe
+  tar_lin: https://www.amritaryal.com.np/siteG/Downloads/Linux/siteg.tar.xz
