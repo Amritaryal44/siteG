@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/Amritaryal44/siteG">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -8,12 +8,12 @@
   <p align="center">
     Create and manage your site easily!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Amritaryal44/siteG"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
     ·
-    <a href="https://github.com/amritaryal44/<this-repo>/issues">Report Bug</a>
+    <a href="https://github.com/Amritaryal44/siteG/issues">Report Bug</a>
   </p>
 </p>
 
@@ -41,7 +41,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![ScreenShot][product-screenshot]](https://example.com)
+[![ScreenShot][product-screenshot]](https://amritaryal.com.np)
 
 SiteG is a static site generator with automatic management techniques. It is specially designed for portfolio websites. A user is able to manage galleries, posts and services easily. It also have 'search site' feature. SiteG allows user to use markdown for writing posts with its own markdown 
 editor (powered by ace editor) with useful snippets. It also have drag image 
@@ -188,7 +188,7 @@ Project Link: [https://github.com/amritaryal44/repo_name](https://github.com/amr
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/main-screenshot.png
 [system-properties]: images/system-properties.png
 [env-variables]: images/envirvariables.jpg
 [no-setup-screenshot]: images/no-setup-screenshot.png
