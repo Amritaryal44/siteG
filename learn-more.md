@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/Amritaryal44/siteG">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -10,7 +10,7 @@
     <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
     ·
-    <a href="https://github.com/amritaryal44/<this-repo>/issues">Report Bug</a>
+    <a href="https://github.com/amritaryal44/siteG/issues">Report Bug</a>
   </p>
 </p>
 

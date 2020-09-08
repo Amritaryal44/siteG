@@ -76,7 +76,7 @@ SiteG works on a template with limited feature. I use the template as most commo
 ### Installation
 
 #### **Using Windows**
-1. Download the setup file from [https://example.com](https://example.com)
+1. Download the setup file from [here](https://www.amritaryal.com.np/siteG/)
 2. Run the setup file
 3. Copy the program folder where ```siteg.exe``` lies.<br> By default it is  ```C:\Program Files (x86)\```
 The Next steps are not mandatory but to access **siteG** from anywhere, I would recommend to follow them too.
@@ -94,7 +94,7 @@ Now it should look like: <br>
 Hurray! Now you are done with installation part.
 
 #### **Using Linux**
-1. Download the tar file from [https://example.com](https://example.com)
+1. Download the tar file from [here](https://www.amritaryal.com.np/siteG/)
 2. Extract the tar file to /home. <br>The Next steps are not mandatory but to access **siteG** from anywhere, I would recommend to follow them too.
 3. Run the terminal (Ubuntu: Ctrl+Alt+T) and type :
     ```bash
@@ -132,7 +132,7 @@ Type ```siteg test``` after navigating to site folder.
 
 Server started at http://127.0.0.1:8000
 ```
-Now Copy the link ```http://127.0.0.1:8000``` and run it with your favourite browser. If you are a linux user, simply ```Ctrl+Click``` on the link will work.
+Now Copy the link ```http://127.0.0.1:8000``` and run it with your favourite browser. If you are a linux user, simply ```Ctrl+Click``` on the link will work. To quit, press ```Ctrl+C```.
 
 Since we have not setup the site yet, It will display this.
 ![ScreenShot][no-setup-screenshot]
@@ -153,12 +153,13 @@ Type ```siteg run``` to run the site setup
 
 Fill all the inputs and click the ```save``` button. Add some galleries, services and posts.
 
-You might be confused in the contact section for form. Please visit [Documentation](https://example.com) to learn more.
+You might be confused in the contact section for form. Please visit [Learn More](./learn-more.html) to learn more.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](./learn-more.html)_
 
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
@@ -166,11 +167,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <!-- CONTACT -->
+
 ## Contact
 
 Your Name - [@amritaryal44](https://twitter.com/AmritAryal44) - amritaryal44@gmail.com
 
-Project Link: [https://github.com/amritaryal44/repo_name](https://github.com/amritaryal44/repo_name)
+Project Link: [https://github.com/amritaryal44/repo_name](https://github.com/amritaryal44/siteG)
 
 
 
