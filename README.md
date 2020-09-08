@@ -170,7 +170,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Amritaryal
 
 Your Name - [@amritaryal44](https://twitter.com/AmritAryal44) - amritaryal44@gmail.com
 
-Project Link: [https://github.com/amritaryal44/repo_name](https://github.com/amritaryal44/siteG)
+Project Link: [https://github.com/amritaryal44/siteG](https://github.com/amritaryal44/siteG)
 
 
 
