@@ -126,10 +126,11 @@ Now, Let's use the siteg to create website.
 ### Testing the site
 Type ```siteg test``` after navigating to site folder.
 ```bash
-/my site$ siteg test
+ /my site$ siteg test
 
 Server started at http://127.0.0.1:8000
 ```
+
 Now Copy the link ```http://127.0.0.1:8000``` and run it with your favourite browser. If you are a linux user, simply ```Ctrl+Click``` on the link will work. To quit, press ```Ctrl+C```.
 
 Since we have not setup the site yet, It will display this.
