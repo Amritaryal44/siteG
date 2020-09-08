@@ -28,6 +28,7 @@ ___
   * [Your introduction](#your-introduction)
 * [3. Contact Form](#3-contact-form)
 * [4. Posts](#4-posts)
+* [5. For modification](#5-for-modification)
 * [License](#license)
 * [Contact](#contact)
 
@@ -131,6 +132,13 @@ Things you need to know while writing markdown:
         ```bash
         ![Chair made on blender](/posts/images/1/1-1.jpg "Chair 3D model")
         ```
+
+## 5. For modification
+If you want to edit the site layout, go to the ```siteg``` location and navigate to: 
+* ```SitegCore/baseHTML``` for changing html layout
+* ```SitegCore/site_files/output``` for changing ```css,js``` files.
+* ```SitegCore/templates``` for changing html layout of ```site manager```
+* ```SitegCore/static``` for changing css,js files of ```site manager```
 
 <!-- LICENSE -->
 ## License
