@@ -8,7 +8,7 @@
   <p align="center">
     Create and manage your site easily!
     <br />
-    <a href="https://github.com/Amritaryal44/siteG"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Amritaryal44/siteG"><strong>Explore More »</strong></a>
     <br />
     <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
@@ -35,8 +35,6 @@
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -153,18 +151,18 @@ Type ```siteg run``` to run the site setup
 
 Fill all the inputs and click the ```save``` button. Add some galleries, services and posts.
 
-You might be confused in the contact section for form. Please visit [Learn More](./learn-more.html) to learn more.
+> Note: if you want to run the server in your smartphone, just replace 127.0.0.1:PORT to [your local ip]:PORT and paste it in your smartphone browser.
 
-_For more examples, please refer to the [Documentation](./learn-more.html)_
+You might be confused in the contact section for form. Please visit [here](./learn-more.html) to learn more.
+
+_For more examples, please refer to the [this page](./learn-more.html)_
 
 
 <!-- LICENSE -->
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
+Distributed under the MIT License. See [`LICENSE`](https://github.com/Amritaryal44/siteG/blob/master/LICENSE) for more information.
 
 <!-- CONTACT -->
 
