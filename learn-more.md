@@ -130,7 +130,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@amritaryal44](https://twitter.com/AmritAryal44) - amritaryal44@gmail.com
+Amrit Aryal - [@amritaryal44](https://twitter.com/AmritAryal44) - amritaryal44@gmail.com
 
 Project Link: [https://github.com/amritaryal44/repo_name](https://github.com/amritaryal44/repo_name)
 
