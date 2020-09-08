@@ -8,6 +8,9 @@
   <p align="center">
     Create and manage your site easily!
     <br />
+    <a href="./"><strong>Home</strong></a>
+    <br />
+    <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
     ·
     <a href="https://github.com/amritaryal44/siteG/issues">Report Bug</a>
