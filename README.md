@@ -112,7 +112,7 @@ Now, Let's use the siteg to create website.
 ###  Creating Website
 1. Navigate to the location where you want to create your website and run terminal(linux) or cmd/powershell (windows). <br>
     * Linux users : Simply right click on the folder and click open in terminal.
-    * Windows users : ```Shift+ Right Click``` and click "open command window here"/"open power shell here".<br> OR<br>You can also type cmd into the Windows File Explorer address bar (use ```Ctrl+L``` | ```Alt+D``` to focus the address bar) and press Enter to open the shell.
+    * Windows users : ```Shift+ Right Click``` and click "open command window here"/"open power shell here".<br> OR<br>You can also type cmd into the Windows File Explorer address bar (use ```Ctrl+L``` or ```Alt+D``` to focus the address bar) and press Enter to open the shell.
 2. To create site, Type ```siteg create <site-name>``` and navigate to ```<site-name>```
     ```bash
     $ siteg create "my site"
