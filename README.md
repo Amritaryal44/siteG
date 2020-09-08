@@ -152,6 +152,8 @@ Type ```siteg run``` to run the site setup
 Fill all the inputs and click the ```save``` button. Add some galleries, services and posts.
 
 > Note: if you want to run the server in your smartphone, just replace 127.0.0.1:PORT to [your local ip]:PORT and paste it in your smartphone browser.
+> Go to ```output``` folder and this stores your site files. If you are git user then just initialize git here and push this as a repository.
+
 
 You might be confused in the contact section for form. Please visit [here](https://www.amritaryal.com.np/siteG/learn-more.html) to learn more.
 
