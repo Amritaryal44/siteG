@@ -124,7 +124,8 @@ Now, Let's use the siteg to create website.
     $ cd "my site"
     ```
 ### Testing the site
-Type ```siteg test``` after navigating to site folder.
+Type ```siteg test``` after navigating to site folder.<br>
+
 ```bash
  /my site$ siteg test
 
