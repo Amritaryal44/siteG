@@ -19,6 +19,18 @@
 
 ___
 
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [1. Home Banner](#1-home-banner)
+  * [Home Banner Subtitle](#home-banner-subtitle)
+* [2. About Me](#2-about-me)
+  * [Your introduction](#your-introduction)
+* [3. Contact Form](#3-contact-form)
+* [4. Posts](#4-posts)
+* [License](#license)
+* [Contact](#contact)
+
 Note: Go through this page: [click me](readme.md) before moving forward because you will only learn some important rules and procedures available in **SiteG**.\
 Some Rules:
 * Siteg supports images listed here. 
@@ -123,7 +135,7 @@ Things you need to know while writing markdown:
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/Amritaryal44/siteG/blob/master/LICENSE) for more information.
 
 
 
