@@ -8,7 +8,7 @@
   <p align="center">
     Create and manage your site easily!
     <br />
-    <a href="https://github.com/Amritaryal44/siteG"><strong>Explore More »</strong></a>
+    <a href="./learn-more.html"><strong>Explore More »</strong></a>
     <br />
     <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
