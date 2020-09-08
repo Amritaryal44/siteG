@@ -8,7 +8,7 @@
   <p align="center">
     Create and manage your site easily!
     <br />
-    <a href="./"><strong>Home</strong></a>
+    <a href="https://www.amritaryal.com.np/siteG/"><strong>Home</strong></a>
     <br />
     <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
@@ -144,7 +144,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Amritaryal
 
 Amrit Aryal - [@amritaryal44](https://twitter.com/AmritAryal44) - amritaryal44@gmail.com
 
-Project Link: [https://github.com/amritaryal44/repo_name](https://github.com/amritaryal44/repo_name)
+Project Link: [https://github.com/amritaryal44/siteG](https://github.com/amritaryal44/siteG)
 
 
 [banner-subtitle1]: images/banner-subtitle1.png

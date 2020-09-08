@@ -8,7 +8,7 @@
   <p align="center">
     Create and manage your site easily!
     <br />
-    <a href="./learn-more.html"><strong>Explore More »</strong></a>
+    <a href="https://www.amritaryal.com.np/siteG/learn-more.html"><strong>Explore More »</strong></a>
     <br />
     <br />
     <a href="https://www.amritaryal.com.np">View Demo</a>
@@ -153,9 +153,9 @@ Fill all the inputs and click the ```save``` button. Add some galleries, service
 
 > Note: if you want to run the server in your smartphone, just replace 127.0.0.1:PORT to [your local ip]:PORT and paste it in your smartphone browser.
 
-You might be confused in the contact section for form. Please visit [here](./learn-more.html) to learn more.
+You might be confused in the contact section for form. Please visit [here](https://www.amritaryal.com.np/siteG/learn-more.html) to learn more.
 
-_For more examples, please refer to the [this page](./learn-more.html)_
+_For more examples, please refer to the [this page](https://www.amritaryal.com.np/siteG/learn-more.html)_
 
 
 <!-- LICENSE -->
