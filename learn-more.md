@@ -31,7 +31,7 @@ ___
 * [License](#license)
 * [Contact](#contact)
 
-Note: Go through this page: [click me](readme.md) before moving forward because you will only learn some important rules and procedures available in **SiteG**.\
+Note: Go through this page: [click me](/) before moving forward because you will only learn some important rules and procedures available in **SiteG**.\
 Some Rules:
 * Siteg supports images listed here. 
     * BMP
