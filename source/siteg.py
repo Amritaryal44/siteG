@@ -7,6 +7,7 @@ import http.server
 import socketserver
 import os
 
+VERSION = "0.0.2"
 
 def isSite():
     if not "output" in os.listdir() and not "database" in os.listdir():
@@ -48,6 +49,7 @@ def siteg():
     pass
 
 @click.group()
+@click.version_option(VERSION)
 def setup():
     ''' Build your site instantly
 
