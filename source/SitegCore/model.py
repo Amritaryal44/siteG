@@ -74,7 +74,7 @@ def saveFavIcon():
     </tile>
   </msapplication>
 </browserconfig>"""
-            f.write(text)
+    f.write(text)
 
 class SiteSetup:
     def loadImage():
