@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, abort, Response
 from flask import redirect, url_for
-from SitegCore.model import loadDates, loadJSON, saveDate, DATABASE
+from SitegCore.model import loadDates, loadJSON, saveDate, DATABASE, saveFavIcon
 from SitegCore.model import SiteSetup, Services, Gallery, MoreGallery, Category, Posts, PostManager
 from SitegCore.export import Renderer, Model
 import os
@@ -22,6 +22,9 @@ def create_app():
     def siteDetail():
         if request.method == 'POST':
             SiteSetup.saveSiteDetail(request.form, request.files)
+
+            # save favIcon if profile image is available
+            saveFavIcon()
 
             # render all required files
             renderer.siteDetail = Model.formatSiteJson()

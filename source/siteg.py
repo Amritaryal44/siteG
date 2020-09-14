@@ -7,7 +7,7 @@ import http.server
 import socketserver
 import os
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 
 def isSite():
     if not "output" in os.listdir() and not "database" in os.listdir():

@@ -54,6 +54,28 @@ def loadDates():
     dateJson = loadJSON(databaseDir, 'date.json')
     return dateJson
 
+def saveFavIcon():
+    rootDir = os.path.normpath(currentDir+"/output")
+    profImage = os.path.normpath(currentDir+"/output/img/about-profile.jpg")
+    if os.path.exists(profImage):
+        HandleImage.faviconGenerator(profImage, rootDir)
+
+        # create ieconfig.xml file
+        with open(os.path.join(rootDir, "ieconfig.xml"), "w") as f:
+            text = """<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="/smalltile.png"/>
+      <square150x150logo src="/mediumtile.png"/>
+      <wide310x150logo src="/widetile.png"/>
+      <square310x310logo src="/largetile.png"/>
+      <TileColor>#009900</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>"""
+            f.write(text)
+
 class SiteSetup:
     def loadImage():
         data = {}

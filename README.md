@@ -17,7 +17,9 @@
   </p>
 </p>
 
-
+New version available (0.0.3):
+* fixed responsive favicon for different systems and browsers
+* fixed animation that repeats infinitely
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
