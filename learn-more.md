@@ -73,10 +73,10 @@ SiteG supports google form. So to include google form, you will need to follow s
 ![Screenshot][form-img4]
 6. Copy the link from here.
 ![Screenshot][form-img5]<br>
-Replace ```/viewform``` to ```/formResponse```. It should look like ```https://docs.google.com/forms/d/e/<form-id>/formResponse```.
+Replace ```/viewform``` to ```/formResponse``` in the link. It should look like ```https://docs.google.com/forms/d/e/<form-id>/formResponse```.
 Paste it in the action input of ```contact section```
 ![Screenshot][form-img6]
-7. For rest of inputs, paste it in new tab of browser and Hit ```Ctrl+Shift+I``` to open inspector and Focus on ```search HTML``` as shown in red box.<br>
+7. For rest of inputs, paste the copied link in new tab of browser and Hit ```Ctrl+Shift+I``` to open inspector and Focus on ```search HTML``` as shown in red box.<br>
 ![Screenshot][form-img7]
 Now, search for "```entry.```" and you will see like this.
 ![Screenshot][form-img8]

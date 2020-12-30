@@ -17,9 +17,9 @@
   </p>
 </p>
 
-New version available (0.0.3):
-* fixed responsive favicon for different systems and browsers
-* fixed animation that repeats infinitely
+Check your version by ```$siteg --version``` in terminal/cmd
+New version available (0.0.4):
+* fixed 'not found' page when sending message from contact section of post pages.
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -102,8 +102,9 @@ Hurray! Now you are done with installation part.
     ``` 
 4. Navigate to the bottom of the file and add this :
     ```bash
-    export PATH="$PATH:/home/siteg"
+    export PATH="$PATH:/home/<username>/siteg"
     ```
+    The path here is actually the path where siteg folder is residing.
 
 Hurray! Now you are done with installation part.
 
